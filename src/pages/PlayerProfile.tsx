@@ -10,7 +10,7 @@ export default function PlayerProfile(){
   return (
     <div className="space-y-4">
       <div className="flex items-center gap-4">
-        <img src={p.photo} alt="p" className="w-20 h-20 rounded-2xl"/>
+        <img src={p.photo} alt={p.name} className="w-24 h-24 rounded-full object-cover" />
         <div>
           <div className="text-lg font-semibold">{p.name}</div>
           <div className="text-sm text-neutral-500">{p.team}</div>
