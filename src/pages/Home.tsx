@@ -10,6 +10,14 @@ import FabUpload from "../components/FabUpload";
 import BottomBar from "../components/BottomBar";
 
 export default function Home(){
+  const priorityMap: Record<string, number> = { ongoing: 0, scheduled: 1, finished: 2 };
+  const nextMatches = [...MOCK_MATCHES]
+    .sort((a, b) => (priorityMap[a.status] ?? 99) - (priorityMap[b.status] ?? 99))
+    .slice(0, 3);
+  const sportCounts = SPORTS.reduce<Record<string, number>>((acc, s) => {
+    acc[s.id] = MOCK_MATCHES.filter(m => m.sport === s.id).length;
+    return acc;
+  }, {});
   return (
     <div className="pb-16">
       <AppBar title="제 2회 한사람 가을 미니 운동회"/>
@@ -19,7 +27,7 @@ export default function Home(){
         <div>
           <h2 className="font-semibold mb-2">진행 중 · 다음 경기</h2>
           <div className="grid grid-cols-1 gap-3">
-            {MOCK_MATCHES.slice(0,2).map(m => (
+            {nextMatches.map(m => (
               <Link key={m.id} to={`/sports/${m.sport}/matches/${m.id}`} className="border rounded-2xl p-4 flex items-center justify-between">
                 <MatchLine m={m}/>
                 <span className="text-xs px-2 py-1 rounded-full" style={{background: STATUS[m.status as keyof typeof STATUS].bg, color: STATUS[m.status as keyof typeof STATUS].color}}>{m.status}</span>
@@ -32,7 +40,10 @@ export default function Home(){
           <h2 className="font-semibold mb-2">종목 선택</h2>
           <div className="grid grid-cols-3 gap-3">
             {SPORTS.map(s => (
-              <Link key={s.id} to={`/sports/${s.id}/overview`} className="border rounded-2xl p-4 text-center">
+              <Link key={s.id} to={`/sports/${s.id}/overview`} className="relative border rounded-2xl p-4 text-center">
+                <span className="absolute top-2 right-2 text-[10px] px-2 py-0.5 rounded-full" style={{background:'var(--soft)', color:'#5B4231'}}>
+                  {sportCounts[s.id] ?? 0}
+                </span>
                 <div className="text-3xl">{s.emoji}</div>
                 <div className="mt-1 text-sm font-medium">{s.name}</div>
               </Link>
