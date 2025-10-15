@@ -1,6 +1,5 @@
 import React from "react";
 import { Routes, Route, NavLink, useParams } from "react-router-dom";
-import AppBar from "../components/AppBar";
 import NoticeBanner from "../components/NoticeBanner";
 import FabUpload from "../components/FabUpload";
 import BottomBar from "../components/BottomBar";
@@ -28,10 +27,9 @@ export default function SportLayout(){
   if(!s) return <div className="p-4">잘못된 종목</div>;
   return (
     <div className="pb-16">
-      <AppBar title={`${s.emoji} ${s.name}`}/>
       <div className="h-1" style={{background:'linear-gradient(90deg, var(--accent), var(--soft))'}}/>
       <NoticeBanner/>
-      <div className="sticky top-[56px] z-10 bg-white border-b">
+      <div className="sticky top-0 z-10 bg-white border-b">
         <div className="grid grid-cols-4 text-sm">
           <TabLink to={`/sports/${sport}/overview`} label="개요"/>
           <TabLink to={`/sports/${sport}/matches`} label="경기"/>

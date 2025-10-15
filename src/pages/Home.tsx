@@ -1,5 +1,4 @@
 import React from "react";
-import AppBar from "../components/AppBar";
 import NoticeBanner from "../components/NoticeBanner";
 import PromoBanner from "../components/PromoBanner";
 import { SPORTS, MOCK_MATCHES } from "../data/mocks";
@@ -21,7 +20,6 @@ export default function Home(){
   }, {});
   return (
     <div className="pb-16">
-      <AppBar title="제 2회 한사람 가을 미니 운동회"/>
       <div className="h-1" style={{background:'linear-gradient(90deg, var(--accent), var(--soft))'}}/>
       <NoticeBanner/>
       <section className="p-4 space-y-4">

@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import AppBar from "../components/AppBar";
 import BottomBar from "../components/BottomBar";
 import ConfirmModal from "../components/ConfirmModal";
 import { Trash2 } from "lucide-react";
@@ -18,7 +17,6 @@ export default function MePage(){
 
   return (
     <div className="pb-16">
-      <AppBar title="내 정보"/>
       <div className="p-4 space-y-4">
         {user ? (
           <div className="border rounded-2xl p-4 flex items-center justify-between">

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import AppBar from "../components/AppBar";
 import BottomBar from "../components/BottomBar";
 import ConfirmModal from "../components/ConfirmModal";
 import Toast from "../components/Toast";
@@ -36,7 +35,6 @@ export default function UploadPage() {
 
   return (
     <div className="pb-16">
-      <AppBar title="업로드" backTo={-1} />
       <div className="p-4 space-y-4">
         <div className="card">
           <div className="text-sm text-neutral-500 mb-2">소스 선택</div>

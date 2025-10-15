@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import AppBar from "../components/AppBar";
 import BottomBar from "../components/BottomBar";
 import { useAuth } from "../contexts/auth";
 
@@ -21,7 +20,6 @@ export default function LoginPage(){
 
   return (
     <div className="pb-16">
-      <AppBar title="로그인" backTo={-1}/>
       <div className="p-4 space-y-4">
         <form onSubmit={submit} className="card space-y-3">
           <div>
