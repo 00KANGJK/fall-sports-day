@@ -69,7 +69,7 @@ export default function PromoBanner() {
         
         {/* 영어 제목 */}
         <div className="text-right mt-3">
-          <div className="text-xs text-gray-400">Hansaram Autumn Mini Sports Festival</div>
+          <div className="text-xs text-gray-400">Hansaram Fall Mini Sports Festival</div>
         </div>
       </div>
     </div>
