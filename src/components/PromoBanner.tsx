@@ -1,32 +1,67 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Megaphone, Trophy } from "lucide-react";
+import { Trophy } from "lucide-react";
 
 export default function PromoBanner() {
   return (
-    <div
-      className="rounded-2xl p-5 text-white relative overflow-hidden"
-      style={{
-        background:
-          "linear-gradient(135deg, var(--accent) 0%, var(--soft) 60%, var(--rose) 100%)",
-      }}
-    >
-      <div className="flex items-start gap-3">
-        <div className="shrink-0 bg-white/15 rounded-xl p-3">
-          <Trophy className="w-6 h-6" />
+    <div className="relative overflow-hidden rounded-2xl">
+      {/* 기하학적 배경 패턴 */}
+      <div 
+        className="absolute inset-0 opacity-90"
+        style={{
+          background: `
+            linear-gradient(45deg, #ff6b9d 0%, #ff8fab 25%, #ffa726 50%, #ffb74d 75%, #ffcc80 100%),
+            repeating-linear-gradient(
+              45deg,
+              transparent,
+              transparent 10px,
+              rgba(255,255,255,0.1) 10px,
+              rgba(255,255,255,0.1) 20px
+            )
+          `
+        }}
+      />
+      
+      {/* 중앙 흰색 영역 */}
+      <div className="relative bg-white mx-4 my-6 rounded-xl p-6">
+        {/* 상단 교회명 */}
+        <div className="text-sm font-medium mb-2" style={{color: '#d81b60'}}>
+          대한예수교장로회 한사람교회
         </div>
-        <div className="flex-1">
-          <div className="text-xs opacity-90">제 2회 한사람</div>
-          <h2 className="text-lg font-semibold">가을 미니 운동회</h2>
-          <p className="text-sm mt-1 opacity-95">하이라이트를 업로드하고 모두와 공유하세요!</p>
-          <div className="mt-3">
-            <Link to="/upload" className="btn inline-flex items-center gap-1">
-              <Megaphone className="w-4 h-4" /> 업로드하기
-            </Link>
+        
+        {/* 메인 타이틀 */}
+        <div className="text-center mb-4">
+          <h1 className="text-2xl font-bold leading-tight">
+            <span style={{color: '#d81b60'}}>제2회 한사람교회</span>
+            <br />
+            <span style={{color: '#ff8a65'}}>가을 미니 운동회</span>
+          </h1>
+        </div>
+        
+        {/* 금메달 아이콘 */}
+        <div className="flex justify-center mb-4">
+          <div className="relative">
+            <Trophy className="w-8 h-8" style={{color: '#ffd700'}} />
+            <div className="absolute -top-1 -right-1 w-3 h-3 bg-red-500 rounded-full flex items-center justify-center">
+              <span className="text-white text-xs font-bold">1</span>
+            </div>
           </div>
         </div>
+        
+        {/* 이벤트 정보 */}
+        <div className="text-center">
+          <div className="inline-flex items-center gap-2 bg-gray-100 rounded-full px-3 py-1 mb-2">
+            <span className="text-xs font-medium" style={{color: '#d81b60'}}>일시</span>
+            <span className="text-xs text-gray-600">2025년 10월 19일 주일 ~ 11월 2일 주일</span>
+          </div>
+          <div className="text-xs text-gray-500">(풋살/탁구/농구)</div>
+        </div>
+        
+        {/* 영어 제목 */}
+        <div className="text-right mt-3">
+          <div className="text-xs text-gray-400">Hansaram Autumn Mini Sports Festival</div>
+        </div>
       </div>
-      <div className="absolute -right-6 -bottom-6 w-28 h-28 rounded-full opacity-20" style={{background:'#fff'}}/>
     </div>
   );
 }

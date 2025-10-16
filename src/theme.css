@@ -1,13 +1,13 @@
 
 :root{
-  --primary:#8B5E34;   /* walnut */
-  --accent:#E07A5F;    /* clay */
-  --soft:#F4A261;      /* pumpkin */
-  --rose:#B56576;      /* mauve */
+  --primary:#059669;   /* emerald green - 축구장 잔디색 */
+  --accent:#10B981;    /* emerald-500 - 밝은 녹색 */
+  --soft:#34D399;      /* emerald-400 - 부드러운 녹색 */
+  --rose:#EF4444;      /* red-500 - 축구공 빨간색 */
   --fog:#FFFFFF;       /* white bg */
-  --ongoing:#718355;
-  --scheduled:#E07A5F;
-  --finished:#6B7280;
+  --ongoing:#059669;   /* emerald-600 - 진행중 경기 */
+  --scheduled:#F59E0B; /* amber-500 - 예정된 경기 */
+  --finished:#6B7280;  /* gray-500 - 종료된 경기 */
 }
 
 

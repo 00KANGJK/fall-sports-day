@@ -3,4 +3,25 @@
 @tailwind utilities;
 
 html,body,#root{height:100%}
-body{margin:0;background:#fff}
+body{
+  margin:0;
+  background:#fff;
+  /* 모바일 최적화 */
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* 터치 최적화 */
+.touch-manipulation {
+  touch-action: manipulation;
+}
+
+/* 모바일 하단 안전 영역 */
+.safe-area-pb {
+  padding-bottom: env(safe-area-inset-bottom);
+}
