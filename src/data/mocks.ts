@@ -3,27 +3,24 @@ import { MediaItem } from "../contexts/media"; // MediaItem 타입 경로
 export const SPORTS = [
   { 
     id: "futsal", 
-    name: "풋살 축구", 
-    emoji: "⚽",
+    name: "풋살",
     date: "10월 19일 (주일)",
-    location: "교회 축구장",
-    status: "active"
+    location: "과천 스타풋살장",
+    url:"https://naver.me/5k7inKMP"
   },
   { 
     id: "table-tennis", 
-    name: "탁구", 
-    emoji: "🏓",
-    date: "11월 2일 (주일)",
-    location: "교회 다목적실",
-    status: "coming-soon"
+    name: "탁구",
+    date: "10월 26일 (주일)",
+    location: "낙성대 탁구장",
+    url:"https://naver.me/xyTi4NF2"
   },
   { 
     id: "basketball", 
-    name: "농구", 
-    emoji: "🏀",
-    date: "10월 26일 (주일)",
-    location: "교회 체육관",
-    status: "coming-soon"
+    name: "농구",
+    date: "11월 2일 (주일)",
+    location: "바스농구클럽",
+    url:"https://naver.me/F2Zdo0jh"
   },
 ] as const;
 

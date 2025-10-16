@@ -34,6 +34,10 @@ export default function Home(){
     setPhotoDetailModalOpen(true);
   };
 
+  const handleSportClick = (url: string) => {
+    window.open(url, '_blank');
+  };
+
   return (
     <div className="pb-20">
       <div className="h-1" style={{background:'linear-gradient(90deg, var(--accent), var(--soft))'}}/>
@@ -44,7 +48,11 @@ export default function Home(){
           <h2 className="font-semibold mb-3 text-lg">스포츠 일정</h2>
           <div className="grid grid-cols-3 gap-2 sm:gap-3">
             {SPORTS.map(s => (
-              <div key={s.id} className="bg-white border border-gray-200 rounded-xl p-2 sm:p-3 text-center touch-manipulation">
+              <button 
+                key={s.id} 
+                onClick={() => handleSportClick(s.url)}
+                className="bg-white border border-gray-200 rounded-xl p-2 sm:p-3 text-center touch-manipulation hover:border-green-300 hover:shadow-md transition-all duration-200"
+              >
                 <div className="flex justify-center mb-2">
                   <img 
                     src={getSportIcon(s.id)} 
@@ -55,7 +63,7 @@ export default function Home(){
                 <div className="font-semibold text-xs sm:text-sm text-gray-900 mb-1">{s.name}</div>
                 <div className="text-xs text-gray-600 mb-1">{s.date}</div>
                 <div className="text-xs text-gray-500">{s.location}</div>
-              </div>
+              </button>
             ))}
           </div>
         </div>
