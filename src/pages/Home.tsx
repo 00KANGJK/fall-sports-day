@@ -5,6 +5,7 @@ import MediaGrid from "../components/MediaGrid";
 import BottomBar from "../components/BottomBar";
 import UploadModal from "../components/UploadModal";
 import PhotoDetailModal from "../components/PhotoDetailModal";
+import { getCurrentUserId } from "../utils/user";
 import futsalIcon from "../icon/futsal.png";
 import tabletennisIcon from "../icon/tabletennis.png";
 import basketballIcon from "../icon/basketball.png";

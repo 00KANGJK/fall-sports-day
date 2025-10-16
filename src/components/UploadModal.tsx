@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useMedia } from "../contexts/media";
+import { getCurrentUserId } from "../utils/user";
 import { X, Upload as UploadIcon, Plus, Trash2 } from "lucide-react";
 
 interface UploadModalProps {
@@ -16,6 +17,7 @@ interface SelectedFile {
 export default function UploadModal({ isOpen, onClose }: UploadModalProps) {
   const { setMedia } = useMedia();
   const [selectedFiles, setSelectedFiles] = useState<SelectedFile[]>([]);
+  const currentUserId = getCurrentUserId();
 
   const handleFileSelect = (event: React.ChangeEvent<HTMLInputElement>) => {
     const files = event.target.files;
@@ -53,7 +55,7 @@ export default function UploadModal({ isOpen, onClose }: UploadModalProps) {
         sport: "futsal", // 기본값으로 설정
         type: 'photo', 
         thumb: selectedFile.preview, 
-        ownerId: null, 
+        ownerId: currentUserId, // 현재 사용자 ID 설정
         caption: "" 
       }, ...prev]);
     });

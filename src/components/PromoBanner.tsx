@@ -1,8 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Trophy } from "lucide-react";
+import { Trophy, User } from "lucide-react";
+import { getCurrentUserId } from "../utils/user";
 
 export default function PromoBanner() {
+  const currentUserId = getCurrentUserId();
+  const shortUserId = currentUserId.split('_').pop()?.substring(0, 6) || 'user';
+
   return (
     <div className="relative overflow-hidden rounded-2xl">
       {/* 기하학적 배경 패턴 */}
@@ -24,9 +28,15 @@ export default function PromoBanner() {
       
       {/* 중앙 흰색 영역 */}
       <div className="relative bg-white mx-4 my-6 rounded-xl p-6">
-        {/* 상단 교회명 */}
-        <div className="text-sm font-medium mb-2" style={{color: '#d81b60'}}>
-          대한예수교장로회 한사람교회
+        {/* 상단 교회명과 사용자 ID */}
+        <div className="flex justify-between items-center mb-2">
+          <div className="text-sm font-medium" style={{color: '#d81b60'}}>
+            대한예수교장로회 한사람교회
+          </div>
+          <div className="flex items-center gap-1 text-xs text-gray-500">
+            <User className="w-3 h-3" />
+            <span>{shortUserId}</span>
+          </div>
         </div>
         
         {/* 메인 타이틀 */}
